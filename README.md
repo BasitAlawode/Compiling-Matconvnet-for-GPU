@@ -1,9 +1,14 @@
 # Compiling-Matconvnet-for-GPU
-Configuring Matconvnet for GPU
+
+## The Task
+I wanted to install matconvnet.
+
+## The Challenge
+I initially wanted to install matconvnet on a Linux version of matlab 2021b. After several failed attempts, I realized one thing. It is easier to install matconvnet on windows compared to Linux. Since I had a dual boot PC, I switched to windows. At the time, I had the latest version of matlab (matlab 2022a), cuda 11.6, and Visual Studio 2019 community edition installed on windows 10. After several trials to install matconvnet, I had no success. In fact, at a time, I considered reinstalling windows. But, this was not an option for me. Finally, I had to downgrade. 
 
 The following detailed how I successfully compiled matconvnet for GPU on Windows 10 after a lot of failures. I hope this helps someone.
 
-## To compile matconvnet, I used the following:
+## To compile matconvnet, I downgraded to the following:
 
 1. MATLAB R2019a
 2. CUDA 10.2
