@@ -1,4 +1,4 @@
-# Configuring-Matconvnet-for-GPU
+# Compiling-Matconvnet-for-GPU
 Configuring Matconvnet for GPU
 
 The following detailed how I successfully compiled matconvnet for GPU on Windows 10 after a lot of failures. I hope this helps someone.
