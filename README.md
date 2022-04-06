@@ -26,7 +26,7 @@ That being said... Let's go.
 Make sure you have installed matlab, cuda, and VS2017. Also, download matconvnet from the official website (https://www.vlfeat.org/matconvnet/).
 
 ### Step 1:
-Open matlab and run (mex -setup) to configure matlab's c++ compiler to VS2017.
+Open matlab and run (mex -setup) from the command window to configure matlab's c++ compiler to VS2017.
 
 ### Step 2: 
 Edit matlab's nvcc path to ensure that matlab is able to 'see' your cuda installation. Do this by navigating to where you have installed matlab. Typical location is as below:
@@ -38,26 +38,31 @@ Open nvcc_msvcpp2017.xml and nvcc_msvcpp2017_dynamic.xml and change the version 
 More details can be found here: https://blog.csdn.net/qq_17783559/article/details/105474663
 
 ### Step 3:
+Include your cuda version in vl_compile of matconvnet by editing line 687
+
+for v = {'5.5', '6.0', '6.5', '7.0', '7.5', '8.0', '8.5', '9.0', '9.5', '10.0', '10.2'}
+
+### Step 4:
 In vl_compile of matconvnet, comment lines 340 and 341
 
 	%flags.base{end+1} = '-O3' ;
 	%flags.base{end+1} = '-DNDEBUG' ;
 	
-### Step 4: 
+### Step 5: 
 In vl_compile of matconvnet, edit line 621 as below:
 
 	flags.base, flags.mexlink{2:end}, '-R2018a', ...
 
 More details can be found here: https://github.com/vlfeat/matconvnet/issues/1200
 
-### Step 5: 
+### Step 6: 
 In vl_compile of matconvnet, comment line 646 and put the path to your cl.exe. Usually, the path will be
 
 cl_path = 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\Hostx64\x64';
 
 Ensure this path is correct for your VS2017.
 
-### Step 6: 
+### Step 7: 
 Compile matcomvnet with the following:
 
 vl_compile('enableGpu;, true, 'cudaMethod', 'nvcc')
